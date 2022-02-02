@@ -9,7 +9,7 @@ interface Country {
 }
 
 @Component({
-  selector: 'app-root',
+  selector: 'butt-stuff',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
