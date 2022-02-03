@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 interface Country {
   name: string;
@@ -23,8 +24,34 @@ export class AppComponent {
   // Public signifies that the class method or property will be used outside the class
   title: string = 'test';
   faCoffee = faCoffee;
-  COOKY: string="COOKIES 🍲🍲🍲🍲";
-  COOKIES: string = `COOKIE MONSTA NEED ${this.COOKY}`
+  _COOKY: string="COOKIES 🍲🍲🍲🍲";
+  COOKIES: string = `COOKIE MONSTA NEED ${this._COOKY}`
+  // Define an accessor with:
+  // get| set function_name() : Data Type
+  // This can save some risk by controlling how properties are get and set
+  set COOKY(value: string) {
+    this._COOKY = value;
+  }
+  get f(){
+    return this.form.controls;
+  }
+  submit(){
+    console.log(this.form.value);
+  }
+
+
+
+  form = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  })
+  ngOnInit(){
+    // This will log any changes to the form field
+    this.form.valueChanges.subscribe(selectedValue => {
+      console.log('name changed')
+      console.log(selectedValue)
+    })
+  }
+
   countries: Country[] = [
     {
       name: 'Russia',
