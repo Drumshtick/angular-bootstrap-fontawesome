@@ -2,7 +2,7 @@
   <h1>FontAwesome test!</h1>
   <fa-icon class="coffee" [icon]="faCoffee"></fa-icon>
 </div>
-<h4>{{_COOKY}}</h4>
+<h4>{{_COOKY || COOKIES}}</h4>
 
 <form [formGroup]="form" (ngSubmit)="submit()">
 

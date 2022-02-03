@@ -26,43 +26,6 @@ export class AppComponent {
   faCoffee = faCoffee;
   _COOKY: string="COOKIES 🍲🍲🍲🍲";
   COOKIES: string = `COOKIE MONSTA NEED ${this._COOKY}`
-  // Define an accessor with:
-  // get| set function_name() : Data Type
-  // This can save some risk by controlling how properties are get and set
-  set COOKY(value: string) {
-    this._COOKY = value;
-  }
-  get getCOOKY(): string {
-    return this.COOKIES;
-  }
-  get f(){
-    return this.form.controls;
-  }
-  submit(){
-    console.log(this.form.value);
-    this._COOKY = this.form.value.name;
-    console.log("HERE: ", this._COOKY)
-    this.form.reset(); // Resets form value
-    this.COOKY = "COOKIE MONSTA NEED COOKIES 🍲🍲🍲🍲";
-  }
-
-  makeChange(value: string){
-    console.log(value);        //Changed Value //undefined
-    this.COOKY = value;
-}
-
-
-  form = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-  })
-  ngOnInit(){
-    // This will log any changes to the form field
-    this.form.valueChanges.subscribe(selectedValue => {
-      console.log('name changed')
-      console.log(selectedValue)
-    })
-  }
-
   countries: Country[] = [
     {
       name: 'Russia',
@@ -83,8 +46,49 @@ export class AppComponent {
       population: 324459463
     },
   ];
-  // Invoked when the class is first instantiated
+  // Define an accessor with:
+  // get| set function_name() : Data Type
+  // This can save some risk by controlling how properties are get and set
+  set COOKY(value: string) {
+    // Check permisions before setting with:
+    // if (this.IsAdmin) { this._PriorOwner = this._CurrentOwner; this._CurrentOwner = newOwner; }
+    // Assuming IsAdmin flag is retrieved and set by database call
+    // NOTE example properties
+    this._COOKY = value;
+  }
+  get getCOOKY(): string {
+    return this.COOKIES;
+  }
+  get f(){
+    return this.form.controls;
+  }
+  submit(): void{
+    // Class methods can also be public private or protected
+    console.log(this.form.value);
+    this._COOKY = this.form.value.name;
+    console.log("HERE: ", this._COOKY)
+    this.form.reset(); // Resets form value
+    this.COOKY = "COOKIE MONSTA NEED COOKIES 🍲🍲🍲🍲";
+  }
+
+  makeChange(value: string){
+    console.log(value);        //Changed Value //undefined
+}
+
+
+  form = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  })
+  ngOnInit(){
+    // This will log any changes to the form field
+    this.form.valueChanges.subscribe(selectedValue => {
+      console.log('name changed')
+      console.log(selectedValue)
+    })
+  }
+
   public constructor() {
+    // Invoked when the class is first instantiated
 
   }
 }
