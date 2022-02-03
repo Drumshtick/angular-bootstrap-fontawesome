@@ -32,13 +32,24 @@ export class AppComponent {
   set COOKY(value: string) {
     this._COOKY = value;
   }
+  get getCOOKY(): string {
+    return this.COOKIES;
+  }
   get f(){
     return this.form.controls;
   }
   submit(){
     console.log(this.form.value);
+    this._COOKY = this.form.value.name;
+    console.log("HERE: ", this._COOKY)
+    this.form.reset(); // Resets form value
+    this.COOKY = "COOKIE MONSTA NEED COOKIES 🍲🍲🍲🍲";
   }
 
+  makeChange(value: string){
+    console.log(value);        //Changed Value //undefined
+    this.COOKY = value;
+}
 
 
   form = new FormGroup({
