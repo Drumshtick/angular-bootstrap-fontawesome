@@ -11,12 +11,13 @@ interface Country {
 @Component({
   selector: 'butt-stuff',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  styles: [`.f-awesome {background-color: black}`]// Directly change styles or link a stylesheet
 })
 export class AppComponent {
   title = 'test';
   faCoffee = faCoffee;
-
+  COOKIES="COOKIE MONSTER LIKE COOKIES 🍲🍲🍲🍲";
   countries: Country[] = [
     {
       name: 'Russia',
