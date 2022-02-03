@@ -3,6 +3,29 @@
   <fa-icon class="coffee" [icon]="faCoffee"></fa-icon>
 </div>
 <h4>{{COOKIES}}</h4>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <div class="form-group">
+      <label for="name">Name</label>
+      <input
+          formControlName="name"
+          id="name"
+          type="text"
+          class="form-control">
+      <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+          <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+
+
+          <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
+      </div>
+  </div>
+
+  <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Submit</button>
+</form>
+
+<br />
+<br />
 <p>Table is just a mapping of objects to table rows with <code>ngFor</code></p>
 
 <table class="table table-striped">
