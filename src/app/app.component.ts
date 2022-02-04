@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
 interface Country {
   name: string;
   flag: string;
@@ -26,6 +25,8 @@ export class AppComponent {
   faCoffee = faCoffee;
   _COOKY: string="COOKIES 🍪🍪🍪🍪";
   COOKIES: string = `COOKIE MONSTA NEED ${this._COOKY}`
+  _date = new Date()
+  _yesterday = new Date(this._date.setDate(this._date.getDate() - 1));
   countries: Country[] = [
     {
       name: 'Russia',
@@ -68,7 +69,7 @@ export class AppComponent {
     // use a getter and return the object
     return navigator.userAgent
   }
-  _date = new Date()
+
   get date(): string {
     return this._date.toString();
   }

@@ -1,16 +1,22 @@
 <section>
+<div class="card">
   <div class="card">
     <h2>{{ _date | date:"mediumTime" }} Updates automatically!</h2>
   </div>
-  <div class="f-awesome">
-    <h1>FontAwesome test!</h1>
-    <fa-icon class="coffee" [icon]="faCoffee"></fa-icon>
-  </div>
   <div class="card">
-    <h4>{{_COOKY || COOKIES | lowercase}} (piped to lowercase)</h4>
+    <h2>{{ _yesterday | niceDate }} current date -1 piped into my custom pipe NiceDate!</h2>
   </div>
+</div>
 
-  <div class="card">
+<div class="f-awesome">
+  <h1>FontAwesome test!</h1>
+  <fa-icon class="coffee" [icon]="faCoffee"></fa-icon>
+</div>
+
+<div class="card">
+    <div class="card">
+      <h4>{{_COOKY || COOKIES | lowercase}} (piped to lowercase)</h4>
+    </div>
     <form [formGroup]="form" (ngSubmit)="submit()">
 
       <div class="form-group">

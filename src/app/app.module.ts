@@ -8,10 +8,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NiceDatePipe } from './nice-date.pipe';
 
 @NgModule({
   declarations: [ // components that the app might need
-    AppComponent
+    AppComponent, NiceDatePipe
   ],
   imports: [  // All need imported packages
     BrowserModule,
