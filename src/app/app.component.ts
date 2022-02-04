@@ -68,6 +68,10 @@ export class AppComponent {
     // use a getter and return the object
     return navigator.userAgent
   }
+  _date = new Date()
+  get date(): string {
+    return this._date.toString();
+  }
 
   submit(): void{
     // Class methods can also be public private or protected
@@ -96,6 +100,8 @@ export class AppComponent {
 
   public constructor() {
     // Invoked when the class is first instantiated
-
+    setInterval(() => {
+      this._date = new Date();
+    }, 1);
   }
 }

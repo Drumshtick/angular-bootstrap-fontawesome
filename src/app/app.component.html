@@ -1,10 +1,13 @@
 <section>
+  <div class="card">
+    <h2>{{ _date | date:"mediumTime" }} Updates automatically!</h2>
+  </div>
   <div class="f-awesome">
     <h1>FontAwesome test!</h1>
     <fa-icon class="coffee" [icon]="faCoffee"></fa-icon>
   </div>
   <div class="card">
-    <h4>{{_COOKY || COOKIES}}</h4>
+    <h4>{{_COOKY || COOKIES | lowercase}} (piped to lowercase)</h4>
   </div>
 
   <div class="card">
