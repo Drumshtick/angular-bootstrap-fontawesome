@@ -24,7 +24,7 @@ export class AppComponent {
   // Public signifies that the class method or property will be used outside the class
   title: string = 'test';
   faCoffee = faCoffee;
-  _COOKY: string="COOKIES 🍲🍲🍲🍲";
+  _COOKY: string="COOKIES 🍪🍪🍪🍪";
   COOKIES: string = `COOKIE MONSTA NEED ${this._COOKY}`
   countries: Country[] = [
     {
@@ -62,13 +62,20 @@ export class AppComponent {
   get f(){
     return this.form.controls;
   }
+
+  get BrowserUserAgent(): string {
+    // To pass an object declared outside the class
+    // use a getter and return the object
+    return navigator.userAgent
+  }
+
   submit(): void{
     // Class methods can also be public private or protected
     console.log(this.form.value);
     this._COOKY = this.form.value.name;
     console.log("HERE: ", this._COOKY)
     this.form.reset(); // Resets form value
-    this.COOKY = "COOKIE MONSTA NEED COOKIES 🍲🍲🍲🍲";
+    this.COOKY = "COOKIE MONSTA NEED COOKIES 🍪🍪🍪🍪";
   }
 
   makeChange(value: string){

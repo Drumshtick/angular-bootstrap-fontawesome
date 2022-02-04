@@ -1,54 +1,64 @@
-<div class="f-awesome">
-  <h1>FontAwesome test!</h1>
-  <fa-icon class="coffee" [icon]="faCoffee"></fa-icon>
-</div>
-<h4>{{_COOKY || COOKIES}}</h4>
-
-<form [formGroup]="form" (ngSubmit)="submit()">
-
-  <div class="form-group">
-      <label for="name">Name</label>
-      <input
-          formControlName="name"
-          id="name"
-          type="text"
-          class="form-control"
-          [(ngModel)]="COOKY"
-          (ngModelChange)="COOKY = $event"
-          (ngModelChange)="makeChange($event)">
-      <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
-          <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
-          <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
-      </div>
+<section>
+  <div class="f-awesome">
+    <h1>FontAwesome test!</h1>
+    <fa-icon class="coffee" [icon]="faCoffee"></fa-icon>
+  </div>
+  <div class="card">
+    <h4>{{_COOKY || COOKIES}}</h4>
   </div>
 
-  <button class="btn btn-primary" (click)={COOKIES} type="submit">Submit</button>
-</form>
+  <div class="card">
+    <form [formGroup]="form" (ngSubmit)="submit()">
 
-<br />
-<br />
-<p>Table is just a mapping of objects to table rows with <code>ngFor</code></p>
+      <div class="form-group">
+          <label for="name">Name</label>
+          <input
+              formControlName="name"
+              id="name"
+              type="text"
+              class="form-control"
+              [(ngModel)]="COOKY"
+              (ngModelChange)="COOKY = $event"
+              (ngModelChange)="makeChange($event)">
+          <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+              <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+              <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
+          </div>
+      </div>
 
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Country</th>
-    <th scope="col">Area</th>
-    <th scope="col">Population</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let country of countries; index as i">
-    <th scope="row">{{ i + 1 }}</th>
-    <td>
-      <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
-      {{ country.name }}
-    </td>
-    <td>{{ country.area | number }}</td>
-    <td>{{ country.population | number }}</td>
-  </tr>
-  </tbody>
-</table>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
 
-<router-outlet></router-outlet>
+  <div class="card">
+    <p>Table is just a mapping of objects to table rows with <code>ngFor</code></p>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Country</th>
+        <th scope="col">Area</th>
+        <th scope="col">Population</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let country of countries; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
+          {{ country.name }}
+        </td>
+        <td>{{ country.area | number }}</td>
+        <td>{{ country.population | number }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card"><h1>User Agent Object</h1>
+    <h2>Objects can only be passed if converted to string and returned with a getter</h2>
+    <h3>{{ BrowserUserAgent }}</h3></div>
+
+  <router-outlet></router-outlet>
+
+</section>
