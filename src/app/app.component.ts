@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { FontAwesomeComponent } from './font-awesome/font-awesome.component';
 
 
 @Component({
@@ -9,5 +10,12 @@ import { Component } from '@angular/core';
 
 })
 export class AppComponent {
-  active = 'top';
+  FontAwesomeComponent = FontAwesomeComponent;
+  active = 'one';
+
+  links = [
+    { title: 'One', fragment: './font-awesome/font-awesome.component.html' },
+  ];
+
+  constructor(public route: ActivatedRoute) {}
 }
